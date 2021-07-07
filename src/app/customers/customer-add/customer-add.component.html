@@ -1,30 +1,30 @@
 <main class="form-signin">
-    <form>
+    <form [formGroup]="form" (submit)="submitForm()">
      
       <h1 class="h3 mb-3 fw-normal">Fill Up Customer Details</h1>
   
       <div class="form-floating">
-        <input type="text" class="form-control"  >
+        <input type="text" class="form-control" formControlName="name" >
         <label for="floatingInput">Name</label>
       </div>
       <div class="form-floating">
-        <input type="number" class="form-control"  >
+        <input type="number" class="form-control" formControlName="age" >
         <label for="floatingInput">Age</label>
       </div>
       <div class="form-floating">
-        <input type="string" class="form-control" >
+        <input type="string" class="form-control" formControlName="company">
         <label for="floatingInput">Company</label>
       </div>
       <div class="form-floating">
-        <input type="email" class="form-control"  >
+        <input type="email" class="form-control"  formControlName="email">
         <label for="floatingPassword">Email</label>
       </div>
       <div class="form-floating">
-        <input type="text" class="form-control" >
+        <input type="text" class="form-control" formControlName="picture">
         <label for="floatingPassword">Picture</label>
       </div>
       <div class="form-floating">
-        <input type="number" class="form-control">
+        <input type="number" class="form-control" formControlName="balance">
         <label for="floatingPassword">Balance</label>
       </div>
   
@@ -32,6 +32,19 @@
     
      
       <button class="w-100 btn btn-lg btn-primary" type="submit">Add Customer</button>
-    
+      
+      <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+        <div id="liveToast" class="toast" [class.show]="showToast" role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="toast-header">
+            <img src="http://www.codewithzacademy.com/training/angular/resources/checked.png" class="rounded me-2" alt="...">
+            <strong class="me-auto">Customer Added Successfully</strong>
+            <small>11 mins ago</small>
+            <button type="button" class="btn-close" (click)="showToast=false" data-bs-dismiss="toast" aria-label="Close"></button>
+          </div>
+          <div class="toast-body">
+           You can check details in Display Customer
+          </div>
+        </div>
+      </div>
     </form>
   </main>
