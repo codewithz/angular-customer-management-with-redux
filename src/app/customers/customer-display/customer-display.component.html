@@ -10,28 +10,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Name</td>
-        <td>Age</td>
-        <td>Email</td>
-        <td>Company</td>
-        <td>Balance</td>
-        <td><img src="https://via.placeholder.com/40"></td>
+      <tr *ngFor="let customer of customers">
+        <td>{{customer.name}}</td>
+        <td>{{customer.age}}</td>
+        <td>{{customer.email}}</td>
+        <td>{{customer.company}</td>
+        <td>{{customer.balance | currency}}</td>
+        <td><img [src]="customer.picture"></td>
       </tr>
-      <tr>
-        <td>Name</td>
-        <td>Age</td>
-        <td>Email</td>
-        <td>Company</td>
-        <td>Balance</td>
-        <td><img src="https://via.placeholder.com/40"></td>
-      </tr><tr>
-        <td>Name</td>
-        <td>Age</td>
-        <td>Email</td>
-        <td>Company</td>
-        <td>Balance</td>
-        <td><img src="https://via.placeholder.com/40"></td>
-      </tr>
+     
     </tbody>
   </table>

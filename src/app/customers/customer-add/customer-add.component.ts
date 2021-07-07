@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Customer } from '../customer.model';
+import { CustomerService } from '../customer.service';
 
 @Component({
   selector: 'app-customer-add',
@@ -12,7 +14,8 @@ export class CustomerAddComponent implements OnInit {
 
    form:FormGroup=new FormGroup({});
 
-  constructor(private formBuilder:FormBuilder) {
+  constructor(private formBuilder:FormBuilder,
+    private customerService:CustomerService) {
 
    }
 
@@ -30,6 +33,16 @@ export class CustomerAddComponent implements OnInit {
 
   submitForm(){
     console.log(this.form.getRawValue());
+    const customer=this.form.getRawValue() as Customer;
+
+    this.customerService.storeCustomer(customer).
+    subscribe(
+      (responseData)=>{
+        this.showToast=true;
+        this.form.reset();
+      }
+    )
+
   }
 
 }
