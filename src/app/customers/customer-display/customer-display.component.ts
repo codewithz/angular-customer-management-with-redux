@@ -10,6 +10,7 @@ import { CustomerService } from '../customer.service';
 export class CustomerDisplayComponent implements OnInit {
 
   customers:Customer[]=[];
+  showLoader:boolean=true;
 
   constructor(private customerService:CustomerService) { 
 
@@ -21,6 +22,7 @@ export class CustomerDisplayComponent implements OnInit {
     this.customerService.getCustomers()
     .subscribe(
       (customers:Customer[])=>{
+        this.showLoader=false;
         this.customers=customers
         console.log(this.customers)
       }

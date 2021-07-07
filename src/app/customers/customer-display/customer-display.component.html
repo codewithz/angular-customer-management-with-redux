@@ -1,4 +1,6 @@
-<table class="table table-hover table-hover">
+<app-loader *ngIf="showLoader"></app-loader>
+
+<table class="table table-hover table-hover"  *ngIf="!showLoader">
     <thead>
       <tr>
         <th scope="col">Name</th>

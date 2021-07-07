@@ -7,14 +7,16 @@ import { AppComponent } from './app.component';
 import { CustomerAddComponent } from './customers/customer-add/customer-add.component';
 import { CustomerDisplayComponent } from './customers/customer-display/customer-display.component';
 import { HeaderComponent } from './header/header.component';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
+import { LoaderComponent } from './loader/loader.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     CustomerAddComponent,
     CustomerDisplayComponent,
-    HeaderComponent
+    HeaderComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
