@@ -8,7 +8,13 @@ import { CustomerAddComponent } from './customers/customer-add/customer-add.comp
 import { CustomerDisplayComponent } from './customers/customer-display/customer-display.component';
 import { HeaderComponent } from './header/header.component';
 import {HttpClientModule} from '@angular/common/http';
-import { LoaderComponent } from './loader/loader.component'
+import { LoaderComponent } from './loader/loader.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { EffectsModule } from '@ngrx/effects';
+import { CustomerEffects } from './customer.effects'
 
 @NgModule({
   declarations: [
@@ -22,7 +28,10 @@ import { LoaderComponent } from './loader/loader.component'
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot(reducers, { metaReducers }),
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
+    EffectsModule.forRoot([CustomerEffects])
 
   ],
   providers: [],
