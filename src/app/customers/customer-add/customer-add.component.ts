@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomerAddComponent implements OnInit {
 
+   showToast:boolean=false;
+
+   
+
   constructor() { }
 
   ngOnInit(): void {
