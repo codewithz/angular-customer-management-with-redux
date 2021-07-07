@@ -2,7 +2,7 @@ import { Action } from '@ngrx/store';
 import { Customer } from './customers/customer.model';
 
 
-export const customerFeatureKey = 'customer';
+export const customerFeatureKey = 'customerState';
 
 export interface State {
 
