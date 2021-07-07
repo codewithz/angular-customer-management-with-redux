@@ -1,4 +1,5 @@
 import { Action } from '@ngrx/store';
+import { Customer } from './customers/customer.model';
 
 export enum CustomerActionTypes {
   LoadCustomers = '[Customer] Load Customers',
@@ -12,12 +13,12 @@ export class LoadCustomers implements Action {
 
 export class LoadCustomersSuccess implements Action {
   readonly type = CustomerActionTypes.LoadCustomersSuccess;
-  constructor(public payload: { data: any }) { }
+  constructor(public payload: { data: Customer[] }) { }
 }
 
 export class LoadCustomersFailure implements Action {
   readonly type = CustomerActionTypes.LoadCustomersFailure;
-  constructor(public payload: { error: any }) { }
+  constructor(public payload: { error: string }) { }
 }
 
 export type CustomerActions = LoadCustomers | LoadCustomersSuccess | LoadCustomersFailure;
